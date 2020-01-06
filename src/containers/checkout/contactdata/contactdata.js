@@ -145,6 +145,8 @@ inputChangedHandler=(event, inputIdentifier)=>{
     
     const updatedFormElement={...updatedOrderForm[inputIdentifier]};
     updatedFormElement.value=event.target.value;
+    updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
+    updatedFormElement.touched = true;
     updatedOrderForm[inputIdentifier]=updatedFormElement;
     let formIsValid=true;
     for(let inputIdentifier in updatedOrderForm){
